@@ -1,0 +1,10 @@
+:Y+1->Y
+:If Y=16:Then:
+:X+1>X:1>Y
+:End
+:
+:If X=8 and Y=15:Then
+:ClrHome
+:Disp "FILE SAVED!"
+:-3->[A](X,Y)
+:Stop

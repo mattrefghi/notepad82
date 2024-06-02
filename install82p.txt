@@ -1,0 +1,58 @@
+:1->A:1->B:1->C:1->D
+:Disp "NOTEPAD INSTALL","BY:MATT R.","1-FULL","2-PARTIAL","3-CUSTOM","4-OUIT"
+:Input "SELECTION=",S
+:If S=1
+:Goto I
+:
+:If S=2:Then
+:0->C:0->D
+:Goto I
+:End
+:
+:If S=3:Then
+:Lbl 1
+:Disp "----------"
+:Disp "1=YES 0=NO"
+:Disp "[B]?"
+:Input A
+:Disp "[C]?"
+:Input B
+:Disp "[D]?"
+:Input C
+:Disp "[E]?"
+:Input D
+:End
+:A+B+C+D->F
+:If F>4 or F<0
+:Then
+:Disp "REDO"
+:Goto 1
+:End
+:
+:
+:
+:Lbl I
+:{9,16}->dim [A]
+:Fill(0,[A])
+:
+:If A=1:Then
+:{9,16}->dim [B]
+:Fill(0,[B])
+:End
+:
+:If B=1:Then
+:{9,16}->dim [C]
+:Fill(0,[C])
+:End
+:
+:If C=1:Then
+:{9,16}->dim [D]
+:Fill(0,[D])
+:End
+:
+:If D=1:Then
+:{9,16}->dim [E]
+:Fill(0,[E])
+:End
+:
+:Disp "INSTALLATION","COMPLETE."

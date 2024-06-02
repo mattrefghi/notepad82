@@ -1,0 +1,56 @@
+:1->U 
+:8->X 
+:1->Y 
+:{9,16}->[A] 
+:Fill(0,[A]) 
+:Disp "----NOTEPAD----","BETA VER: 1.0"," JANUARY 29,2003","","Y= TO SAVE TEMP","","BY:MATT R." 
+:Pause 
+:ClrHome 
+:Lbl K 
+:getKey->K 
+:If U=1:Then 
+:Output(7,1,"FILENAME:" 
+:End 
+:If Y=7 and U=1 
+:Then 
+:ClrHome 
+:-4->[A](9,1) 
+:For(Q,1,7) 
+:[A](8,Q)->[A](9,Q+1 
+:0->[A](8,Q) 
+:End 
+:1->X 
+:1->Y 
+:0->T 
+:0->U 
+:End 
+: 
+:If K=11:Then 
+:Goto S 
+:End 
+: 
+:If (K>=41 and K<=52) or (K=102 or K=103) 
+:Then 
+:prgmPADCHCK 
+:End 
+:If K>=53 and K<=64 
+:Then 
+:prgmPADCHCK2 
+:End 
+:If K>=65 and K<=82 
+:Then 
+:prgmPADCHCK3 
+:End 
+: 
+:If K>=83 and K<=93 
+:Then 
+:prgmPADCHCK4 
+:End 
+: 
+:Goto K 
+: 
+:Lbl S 
+:-3->[A](X,Y) 
+:ClrHome 
+:Disp "FILE SAVED." 
+:Stop 

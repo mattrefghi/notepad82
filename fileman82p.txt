@@ -1,0 +1,177 @@
+:0->E
+:0->S
+:ClrHome
+:Disp "  FILE-MANAGER"
+:Disp "BY:MATT R."
+:Pause 
+:
+:Lbl M
+:ClrHome
+:Disp "FILE-MANAGER:"
+:Disp "1-SAVE"
+:Disp "2-LOAD"
+:Disp "3-COPY"
+:Disp "4-ERASE"
+:Disp "5-QUIT"
+:Input "SELECTION=",S
+:If S=1:Then:
+:ClrHome
+:Disp "","","SCANNING TEMP..."
+:For(X,1,8)
+:For(Y,1,16)
+:
+:If [A](X,Y)=-3:Then:1->E:Goto V
+:End
+:
+:End
+:End
+:Lbl V
+:Disp "","SCAN COMPLETED."
+:Pause 
+:ClrHome
+:If E=1:Then:Goto Á:Else:Goto Z:End
+:End
+:Lbl L
+:If S=2:Then:
+:ClrHome
+:Disp "LOAD..."
+:Disp "1-SLOT 1"
+:Disp "2-SLOT 2"
+:Disp "3-SLOT 3"
+:Disp "4-SLOT 4"
+:Disp "5-BACK"
+:Input "SELECTION=",L
+:If L=1:Then
+:[B]->[A]
+:End
+:If L=2:Then
+:[C]->[A]
+:End
+:If L=3:Then
+:[D]->[A]
+:End
+:If L=4:Then
+:[E]->[A]
+:End
+:If L=5
+:Goto M
+:
+:If L>5 or L<1
+:Then
+:Goto L
+:End
+:prgmNOTEDECO
+:End
+:
+:If S=3:Then
+:Lbl 5
+:ClrHome
+:Disp "COPY FROM...","1-SLOT 1","2-SLOT 2","3-SLOT 3","4-SLOT 4"
+:Input "FROM ",S
+:If S<1 or S>4
+:Goto 5
+:ClrHome
+:Disp "COPY TO...","1-SLOT 1","2-SLOT 2","3-SLOT 3","4-SLOT 4"
+:Input "TO ",T
+:
+:If T<1 or T>4
+:Goto 5
+:
+:If S=1 and T=2
+:[B]->[C]
+:
+:If S=1 and T=3
+:[B]->[D]
+:
+:If S=1 and T=4
+:[B]->[E]
+:
+:If S=2 and T=1
+:[C]->[B]
+:
+:If S=2 and T=3
+:[C]->[D]
+:
+:If S=2 and T=4
+:[C]->[E]
+:
+:If S=3 and T=1
+:[D]->[B]
+:
+:If S=3 and T=2
+:[D]->[C]
+:
+:If S=3 and T=4
+:[D]->[E]
+:
+:If S=4 and T=1
+:[E]->[B]
+:
+:If S=4 and T=2
+:[E]->[C]
+:
+:If S=4 and T=3
+:[E]->[D]
+:
+:Disp "COPIED."
+:Pause 
+:End
+:If S=4:Then
+:Lbl Q
+:ClrHome
+:Disp "ERASE...","0-TEMP","1-SLOT 1","2-SLOT 2","3-SLOT 3","4-SLOT 4","5-BACK"
+:Input "SELECTION=",S
+:If S=0
+:Fill(0,[A]
+:
+:If S=1
+:Fill(0,[B]
+:
+:If S=2
+:Fill(0,[C]
+:
+:If S=3
+:Fill(0,[D]
+:
+:If S=4
+:Fill(0,[E]
+:
+:If S=5
+:Goto M
+:
+:If S<0 or S>5
+:Goto Q
+:
+:Disp "ERASED."
+:Pause 
+:End
+:If S=5:Then
+:ClrHome
+:Disp "BY:MATT R.":RecallPic Pic1:
+:Stop:End
+:Goto M
+:
+:Lbl Z
+:Disp "","ERROR!","TEMP IS EMPTY."
+:Pause 
+:Goto M
+:Lbl Á
+:Disp "SAVE TO...?"
+:Disp "1-SLOT 1","2-SLOT 2","3-SLOT 3","4-SLOT 4"
+:Input "SELECTION=",S
+:If S=1:Then:
+:[A]->[B]
+:Else
+:If S=2:Then:
+:[A]->[C]
+:Else
+:If S=3:Then:
+:[A]->[D]
+:Else
+:If S=4:Then:
+:[A]->[E]
+:End
+:End
+:End
+:End
+:
